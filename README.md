@@ -1,4 +1,4 @@
-# Getting started width Create React App
+# Getting started with Create React App
 ### yarn install
 ### yarn start
 # Usage of Docker
