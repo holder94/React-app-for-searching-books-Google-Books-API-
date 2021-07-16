@@ -83,9 +83,10 @@ export function updateCard(object) {
 	}
 }
 
-export function resetStartIndex() {
+export function resetStartIndex(value) {
 	return {
 		type: RESET_START_INDEX,
+		value,
 	}
 }
 

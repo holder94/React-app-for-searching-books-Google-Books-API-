@@ -24,7 +24,7 @@ function InputLine(props) {
 		) {
 			props.open(false)
 			props.resetBooks()
-			props.resetIndex()
+			props.resetIndex(0)
 			props.loader(true)
 			const url = `https://www.googleapis.com/books/v1/volumes?q=${
 				event.target.value || input
@@ -81,7 +81,7 @@ function mapDispatchToProps(dispatch) {
 		setQuery: (query) => dispatch(changeQuery(query)),
 		setItems: (number) => dispatch(setTotalItems(number)),
 		resetBooks: () => dispatch(resetBooks()),
-		resetIndex: () => dispatch(resetStartIndex()),
+		resetIndex: (value) => dispatch(resetStartIndex(value)),
 		open: (value) => dispatch(setOpened(value)),
 	}
 }

@@ -65,7 +65,7 @@ function reducer(state = initialState, action) {
 		case RESET_START_INDEX: {
 			return {
 				...state,
-				startIndex: 0,
+				startIndex: action.value,
 			}
 		}
 		case RESET_BOOKS: {
