@@ -27,7 +27,7 @@ function Card(props) {
 				)
 			}}
 		>
-			<img src={props.imgLink} width='100%' alt='no pic' />
+			{props.imgLink === ' ' ? <div className="altpic">No picture</div> : <img src={props.imgLink} width='100%' alt='no pic' />}
 			<br />
 			<div className='title'>{props.title}</div>
 			<div className='category'>

@@ -16,7 +16,7 @@ export const initialState = {
 		title: '',
 		categories: [],
 		authors: [],
-		link: '',
+		link: ' ',
 		description: '',
 	},
 }
