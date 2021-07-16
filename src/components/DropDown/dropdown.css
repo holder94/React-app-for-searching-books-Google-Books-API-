@@ -1,0 +1,112 @@
+.cover {
+	width: 21%;
+	max-width: 300px;
+}
+
+.label {
+	text-align: center;
+	color: white;
+	font-size: 20px;
+	width: 100%;
+	font-weight: 700;
+}
+
+.dropdown {
+	width: 100%;
+	border: 1px solid grey;
+	background-color: rgba(255, 255, 255, 0.911);
+	border-radius: 5px;
+	max-width: 300px;
+}
+
+.dropdown:hover {
+	cursor: pointer;
+}
+
+.current {
+	width: 100%;
+	box-sizing: border-box;
+	word-wrap: normal;
+}
+
+.current:hover {
+	background-color: rgba(57, 53, 53, 0.687);
+}
+
+.list {
+	width: 100%;
+	box-sizing: border-box;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	border-top: 1px solid grey;
+}
+
+li:hover {
+	background-color: rgba(45, 42, 42, 0.462);
+}
+
+@media (max-width: 750px) {
+	.current {
+		font-size: 12px;
+	}
+
+	.cover {
+		width: 15%;
+	}
+}
+
+@media (max-width: 520px) {
+	.dropdown {
+		font-size: 12px;
+	}
+
+	.label {
+		font-size: 15px;
+		font-weight: 500;
+	}
+}
+
+@media (max-width: 420px) {
+	.current {
+		font-size: 8px;
+	}
+
+	.arrow {
+		font-size: 8px;
+		margin-top: 4px;
+	}
+
+	li {
+		font-size: 8px;
+	}
+}
+
+@media (max-width: 350px) {
+	.label {
+		font-size: 10px;
+	}
+}
+
+@media (min-width: 1600px) {
+	.label {
+		font-size: 25px;
+	}
+
+	.cover,
+	.dropdown {
+		max-width: 350px;
+	}
+
+	.current,
+	li {
+		font-size: 22px;
+	}
+
+	.arrow {
+		font-size: 25px;
+	}
+}

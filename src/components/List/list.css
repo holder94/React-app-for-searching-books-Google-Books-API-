@@ -1,0 +1,57 @@
+.books {
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.btn {
+	margin: auto;
+	display: block;
+	font-size: 16px;
+	margin-bottom: 1%;
+}
+
+.btn:hover {
+	cursor: pointer;
+}
+
+.total {
+	text-align: center;
+	font-size: 18px;
+	color: white;
+	margin-top: 5%;
+	font-weight: 600;
+}
+
+@media (max-width: 750px) {
+	.total {
+		font-size: 12px;
+	}
+}
+
+@media (max-width: 550px) {
+	.total {
+		margin-top: 10%;
+	}
+}
+
+@media (max-width: 500px) {
+	.total {
+		font-size: 8px;
+	}
+}
+
+@media (min-width: 1500px) {
+	.total {
+		font-size: 24px;
+	}
+}
+
+.wrapper {
+	width: 90%;
+	margin: 5%;
+	margin-bottom: 1%;
+	margin-top: 1%;
+	padding: 1%;
+	border-radius: 8px;
+	background-color: rgba(30, 30, 30, 0.626);
+}

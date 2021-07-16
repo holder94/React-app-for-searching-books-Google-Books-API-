@@ -1,0 +1,56 @@
+.inputline {
+	width: 100%;
+	max-width: 500px;
+	background-color: white;
+	border: 0;
+	outline: none;
+}
+
+.search {
+	width: min-content;
+	height: min-content;
+	margin-left: 3px;
+}
+
+.search:hover {
+	cursor: pointer;
+	color: rgba(118, 114, 114, 0.748);
+}
+
+.inputwrapper {
+	padding: 3px;
+	border-radius: 6px;
+	width: 20%;
+	max-width: 500px;
+	height: min-content;
+	display: flex;
+	background-color: white;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@media (max-width: 450px) {
+	.inputline {
+		font-size: 9px;
+	}
+}
+
+@media (min-width: 1600px) {
+	.inputwrapper {
+		width: 25%;
+	}
+
+	.inputline {
+		font-size: 20px;
+	}
+
+	.search {
+		font-size: 25px;
+	}
+}
+
+@media(max-width: 420px) {
+	.search {
+		font-size: 12px;
+	}
+}

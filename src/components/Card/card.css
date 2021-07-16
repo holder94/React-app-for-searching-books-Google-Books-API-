@@ -1,0 +1,123 @@
+.card {
+	background-color: white;
+	width: 15%;
+	margin-bottom: 1%;
+	border: 2px solid rgba(30, 30, 30, 0.626);
+	overflow: hidden;
+}
+
+.card:hover {
+	cursor: pointer;
+	border-color: orange;
+}
+
+.title,
+.category,
+.authors {
+	margin-left: 2%;
+	margin-right: 2%;
+}
+
+.title {
+	text-decoration: underline;
+	font-size: 15px;
+	word-wrap: break-word;
+}
+
+.category {
+	font-size: 13px;
+}
+
+.authors {
+	font-size: 14px;
+	font-weight: 600;
+	color: rgb(144, 141, 141);
+	word-wrap: break-word;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+img {
+	height: 180px;
+}
+
+@media (max-width: 1200px) {
+	img {
+		height: 40%;
+	}
+}
+
+@media (max-width: 900px) {
+	img {
+		height: 50%;
+	}
+
+	.title {
+		font-size: 10px;
+	}
+
+	.category {
+		font-size: 8px;
+	}
+
+	.authors {
+		font-size: 9px;
+	}
+
+	.card {
+		height: auto;
+	}
+}
+
+@media (max-width: 550px) {
+	img {
+		height: 45%;
+	}
+
+	.title {
+		font-size: 10px;
+	}
+
+	.category {
+		font-size: 8px;
+	}
+
+	.authors {
+		font-size: 10px;
+	}
+
+	.card {
+		height: auto;
+		width: 30%;
+	}
+}
+
+@media (min-width: 1500px) {
+	.card {
+		height: 500px;
+	}
+
+	.title {
+		font-size: 20px;
+	}
+
+	.category {
+		font-size: 15px;
+	}
+
+	.authors {
+		font-size: 17px;
+	}
+}
+
+@media (min-width: 400px) {
+	.card {
+		height: 250px;
+	}
+}
+
+@media (min-width: 850px) {
+	.card {
+		height: auto;
+	}
+}
