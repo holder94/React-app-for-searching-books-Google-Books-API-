@@ -4,6 +4,7 @@
 	margin-bottom: 1%;
 	border: 2px solid rgba(30, 30, 30, 0.626);
 	overflow: hidden;
+	height: 450px;
 }
 
 .card:hover {
@@ -38,7 +39,7 @@
 }
 
 img {
-	height: 180px;
+	height: 54%;
 }
 
 .altpic {
@@ -51,17 +52,21 @@ img {
 
 @media (max-width: 1200px) {
 	img, .altpic {
-		height: 40%;
+		height: 50%;
 	}
 
 	.altpic {
 		font-size: 15px;
 	}
+
+	.card {
+		height: auto;
+	}
 }
 
 @media (max-width: 900px) {
 	img, .altpic {
-		height: 50%;
+		height: 55%;
 	}
 
 	.title {
@@ -75,16 +80,19 @@ img {
 	.authors {
 		font-size: 9px;
 	}
+}
 
-	.card {
-		height: auto;
+@media(max-width: 700px) {
+	img, .altpic {
+		height: 50%;
 	}
 }
 
 @media (max-width: 550px) {
 	img, .altpic {
-		height: 45%;
+		height: 50%;
 	}
+	
 
 	.title {
 		font-size: 10px;
@@ -99,8 +107,43 @@ img {
 	}
 
 	.card {
-		height: auto;
 		width: 30%;
+	}
+}
+
+@media(max-width: 350px) {
+	img, .altpic {
+		height: 44%;
+	}
+
+	.title {
+		font-size: 8px;
+	}
+
+	.category {
+		font-size: 6px;
+	}
+
+	.authors {
+		font-size: 8px;
+	}
+}
+
+@media(min-width: 1600px) {
+	.img, .altpic {
+		height: 60%;
+	}
+
+	.title {
+		font-size: 17px;
+	}
+
+	.category {
+		font-size: 15px;
+	}
+
+	.authors {
+		font-size: 16px;
 	}
 }
 
@@ -123,17 +166,5 @@ img {
 
 	.altpic {
 		font-size: 25px;
-	}
-}
-
-@media (min-width: 400px) {
-	.card {
-		height: 250px;
-	}
-}
-
-@media (min-width: 850px) {
-	.card {
-		height: auto;
 	}
 }
