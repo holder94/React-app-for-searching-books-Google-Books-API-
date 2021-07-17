@@ -36,7 +36,6 @@ function InputLine(props) {
 			}&orderBy=${
 				props.currentSorting
 			}&startIndex=0&maxResults=30&key=${myAPIKey}`
-			console.log(url)
 
 			try {
 				const res = await fetch(url)
