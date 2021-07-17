@@ -1,5 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import './header.css'
 import DropDownCategory from '../DropDown/DropDownCategory'
 import DropDownSorting from '../DropDown/DropDownSorting'

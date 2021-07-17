@@ -42,19 +42,22 @@ function DropDownCategory(props) {
 			}${value === 'all' ? '' : `+subject:${value}`}&orderBy=${
 				props.currentSorting
 			}&startIndex=${start}&maxResults=30&key=${myAPIKey}`
-			console.warn(url)
 
-			const res = await fetch(url)
-			const data = await res.json()
-			if (data.totalItems === 0) {
-				props.setTotal(total)
-				props.resetStartIndex(start)
-				props.setLoading(false)
-				return
+			try {
+				const res = await fetch(url)
+				const data = await res.json()
+				if (data.totalItems === 0) {
+					props.setTotal(total)
+					props.resetStartIndex(start)
+					props.setLoading(false)
+					return
+				}
+				props.loadBooks(data.items)
+				total += data.totalItems
+				start += 30
+			} catch (e) {
+				console.log(e)
 			}
-			props.loadBooks(data.items)
-			total += data.totalItems
-			start += 30
 		}
 		props.resetStartIndex(start)
 		props.setTotal(total)

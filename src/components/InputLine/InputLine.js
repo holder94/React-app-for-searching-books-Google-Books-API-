@@ -35,13 +35,17 @@ function InputLine(props) {
 				props.sorting
 			}&startIndex=0&maxResults=30&key=${myAPIKey}`
 
-			const res = await fetch(url)
-			const data = await res.json()
-			if (!data.totalItems) {
-				props.setItems(0)
-			} else {
-				props.setItems(data.totalItems)
-				props.load(data.items)
+			try {
+				const res = await fetch(url)
+				const data = await res.json()
+				if (!data.totalItems) {
+					props.setItems(0)
+				} else {
+					props.setItems(data.totalItems)
+					props.load(data.items)
+				}
+			} catch (e) {
+				console.log(e)
 			}
 			props.loader(false)
 		}

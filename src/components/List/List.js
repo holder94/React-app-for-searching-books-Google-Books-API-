@@ -25,11 +25,15 @@ function List(props) {
 			props.startIndex
 		}&maxResults=30&key=${myAPIKey}`
 
-		const res = await fetch(url)
-		const data = await res.json()
+		try {
+			const res = await fetch(url)
+			const data = await res.json()
 
-		if (props.array.length !== props.totalItems) {
-			props.load(data.items)
+			if (props.array.length !== props.totalItems) {
+				props.load(data.items)
+			}
+		} catch (e) {
+			console.log(e)
 		}
 		props.loader(false)
 	}
