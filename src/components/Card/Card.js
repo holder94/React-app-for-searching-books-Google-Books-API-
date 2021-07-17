@@ -5,7 +5,7 @@ import { setOpened, updateCard } from '../../redux/Actions/actions'
 
 function Card(props) {
 	function openCard(title, categories, authors, link) {
-		props.open(true)
+		props.setOpened(true)
 		const obj = {
 			title,
 			categories,
@@ -15,6 +15,7 @@ function Card(props) {
 		}
 		props.update(obj)
 	}
+
 	return (
 		<div
 			className='card'
@@ -56,7 +57,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		open: (value) => dispatch(setOpened(value)),
+		setOpened: (value) => dispatch(setOpened(value)),
 		update: (obj) => dispatch(updateCard(obj)),
 	}
 }

@@ -16,12 +16,14 @@ const css = {
 
 function List(props) {
 	async function handleClick() {
-		props.loader(true)
+		props.setLoading(true)
 		const url = `https://www.googleapis.com/books/v1/volumes?q=${
 			props.query
 		}${
-			props.category === 'all' ? '' : `+subject:${props.category}`
-		}&orderBy=${props.sorting}&startIndex=${
+			props.currentCategory === 'all'
+				? ''
+				: `+subject:${props.currentCategory}`
+		}&orderBy=${props.currentSorting}&startIndex=${
 			props.startIndex
 		}&maxResults=30&key=${myAPIKey}`
 
@@ -29,13 +31,13 @@ function List(props) {
 			const res = await fetch(url)
 			const data = await res.json()
 
-			if (props.array.length !== props.totalItems) {
-				props.load(data.items)
+			if (props.books.length !== props.totalItems) {
+				props.loadBooks(data.items)
 			}
 		} catch (e) {
 			console.log(e)
 		}
-		props.loader(false)
+		props.setLoading(false)
 	}
 
 	return (
@@ -52,7 +54,7 @@ function List(props) {
 				className='wrapper'
 				style={{
 					display:
-						(props.array.length || props.loading) && !props.isOpened
+						(props.books.length || props.loading) && !props.isOpened
 							? ''
 							: 'none',
 				}}
@@ -63,7 +65,7 @@ function List(props) {
 						display: 'flex',
 					}}
 				>
-					{props.array.map((item, index) => {
+					{props.books.map((item, index) => {
 						return (
 							<Card
 								key={index}
@@ -94,7 +96,7 @@ function List(props) {
 				className='btn'
 				style={{
 					display:
-						props.array.length && !props.isOpened && !props.loading
+						props.books.length && !props.isOpened && !props.loading
 							? ''
 							: 'none',
 				}}
@@ -109,9 +111,9 @@ function List(props) {
 
 function mapStateToProps(state) {
 	return {
-		array: state.books,
-		category: state.currentCategory,
-		sorting: state.currentSorting,
+		books: state.books,
+		currentCategory: state.currentCategory,
+		currentSorting: state.currentSorting,
 		startIndex: state.startIndex,
 		query: state.query,
 		loading: state.loading,
@@ -122,8 +124,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		load: (data) => dispatch(loadBooks(data)),
-		loader: (value) => dispatch(setLoading(value)),
+		loadBooks: (data) => dispatch(loadBooks(data)),
+		setLoading: (value) => dispatch(setLoading(value)),
 	}
 }
 

@@ -9,7 +9,11 @@ function OpenedCard(props) {
 			className='openedcard'
 			style={{ display: props.isOpened ? 'flex' : 'none' }}
 		>
-			{props.data.link === ' ' ? <div className="nopicture">No picture</div> : <img src={props.data.link} alt='no pic' className='picture' />}
+			{props.data.link === ' ' ? (
+				<div className='nopicture'>No picture</div>
+			) : (
+				<img src={props.data.link} alt='no pic' className='picture' />
+			)}
 			<div className='main'>
 				<div className='categories'>
 					Categories:&nbsp;
@@ -18,7 +22,7 @@ function OpenedCard(props) {
 						className='fa fa-times icon'
 						aria-hidden='true'
 						onClick={() => {
-							props.open(false)
+							props.setOpened(false)
 						}}
 					></i>
 				</div>
@@ -49,7 +53,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		open: (value) => dispatch(setOpened(value)),
+		setOpened: (value) => dispatch(setOpened(value)),
 	}
 }
 

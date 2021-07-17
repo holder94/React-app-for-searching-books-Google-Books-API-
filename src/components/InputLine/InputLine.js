@@ -23,17 +23,20 @@ function InputLine(props) {
 			event.target.value !== '' &&
 			input !== ''
 		) {
-			props.open(false)
+			props.setOpened(false)
 			props.resetBooks()
 			props.resetIndex(0)
-			props.loader(true)
+			props.setLoading(true)
 			const url = `https://www.googleapis.com/books/v1/volumes?q=${
 				event.target.value || input
 			}${
-				props.category === 'all' ? '' : `+subject:${props.category}`
+				props.currentCategory === 'all'
+					? ''
+					: `+subject:${props.currentCategory}`
 			}&orderBy=${
-				props.sorting
+				props.currentSorting
 			}&startIndex=0&maxResults=30&key=${myAPIKey}`
+			console.log(url)
 
 			try {
 				const res = await fetch(url)
@@ -42,12 +45,12 @@ function InputLine(props) {
 					props.setItems(0)
 				} else {
 					props.setItems(data.totalItems)
-					props.load(data.items)
+					props.loadBooks(data.items)
 				}
 			} catch (e) {
 				console.log(e)
 			}
-			props.loader(false)
+			props.setLoading(false)
 		}
 	}
 	return (
@@ -70,21 +73,21 @@ function InputLine(props) {
 
 function mapStateToProps(state) {
 	return {
-		category: state.currentCategory,
-		sorting: state.currentSorting,
+		currentCategory: state.currentCategory,
+		currentSorting: state.currentSorting,
 		startIndex: state.startIndex,
 	}
 }
 
 function mapDispatchToProps(dispatch) {
 	return {
-		load: (array) => dispatch(loadBooks(array)),
-		loader: (value) => dispatch(setLoading(value)),
+		loadBooks: (array) => dispatch(loadBooks(array)),
+		setLoading: (value) => dispatch(setLoading(value)),
 		setQuery: (query) => dispatch(changeQuery(query)),
 		setItems: (number) => dispatch(setTotalItems(number)),
 		resetBooks: () => dispatch(resetBooks()),
 		resetIndex: (value) => dispatch(resetStartIndex(value)),
-		open: (value) => dispatch(setOpened(value)),
+		setOpened: (value) => dispatch(setOpened(value)),
 	}
 }
 

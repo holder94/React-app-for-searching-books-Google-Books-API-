@@ -51,7 +51,8 @@ img {
 }
 
 @media (max-width: 1200px) {
-	img, .altpic {
+	img,
+	.altpic {
 		height: 50%;
 	}
 
@@ -65,7 +66,8 @@ img {
 }
 
 @media (max-width: 900px) {
-	img, .altpic {
+	img,
+	.altpic {
 		height: 55%;
 	}
 
@@ -82,17 +84,18 @@ img {
 	}
 }
 
-@media(max-width: 700px) {
-	img, .altpic {
+@media (max-width: 700px) {
+	img,
+	.altpic {
 		height: 50%;
 	}
 }
 
 @media (max-width: 550px) {
-	img, .altpic {
+	img,
+	.altpic {
 		height: 50%;
 	}
-	
 
 	.title {
 		font-size: 10px;
@@ -111,8 +114,9 @@ img {
 	}
 }
 
-@media(max-width: 350px) {
-	img, .altpic {
+@media (max-width: 350px) {
+	img,
+	.altpic {
 		height: 44%;
 	}
 
@@ -129,8 +133,9 @@ img {
 	}
 }
 
-@media(min-width: 1600px) {
-	.img, .altpic {
+@media (min-width: 1600px) {
+	.img,
+	.altpic {
 		height: 60%;
 	}
 

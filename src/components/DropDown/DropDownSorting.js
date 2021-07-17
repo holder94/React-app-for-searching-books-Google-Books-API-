@@ -18,7 +18,7 @@ function DropDownCategory(props) {
 
 	async function handleClick(value) {
 		props.changeSorting(value)
-		props.sorting(false)
+		props.showSorting(false)
 		if (!props.query) return
 		const length = props.books.length
 		let times = Math.floor(length / 30) + (length % 30 ? 1 : 0)
@@ -32,7 +32,9 @@ function DropDownCategory(props) {
 			const url = `https://www.googleapis.com/books/v1/volumes?q=${
 				props.query
 			}${
-				props.category === 'all' ? '' : `+subject:${props.category}`
+				props.currentCategory === 'all'
+					? ''
+					: `+subject:${props.currentCategory}`
 			}&orderBy=${value}&startIndex=${start}&maxResults=30&key=${myAPIKey}`
 
 			try {
@@ -62,10 +64,10 @@ function DropDownCategory(props) {
 			<div
 				className='dropdown'
 				onMouseEnter={() => {
-					props.sorting(true)
+					props.showSorting(true)
 				}}
 				onMouseLeave={() => {
-					props.sorting(false)
+					props.showSorting(false)
 				}}
 			>
 				<div className='current'>
@@ -103,7 +105,7 @@ function mapStateToProps(state) {
 		displaySorting: state.showSorting,
 		query: state.query,
 		books: state.books,
-		category: state.currentCategory,
+		currentCategory: state.currentCategory,
 		startIndex: state.startIndex,
 	}
 }
@@ -111,7 +113,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
 	return {
 		changeSorting: (sorting) => dispatch(changeSorting(sorting)),
-		sorting: (value) => dispatch(showSorting(value)),
+		showSorting: (value) => dispatch(showSorting(value)),
 		loadBooks: (data) => dispatch(loadBooks(data)),
 		resetStartIndex: (value) => dispatch(resetStartIndex(value)),
 		resetBooks: () => dispatch(resetBooks()),
