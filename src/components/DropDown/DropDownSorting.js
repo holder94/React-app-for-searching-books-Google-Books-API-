@@ -14,7 +14,6 @@ import {
 const myAPIKey = 'AIzaSyCgRUtnaRS_MTCQxmK0J-q-O-KFJMrEv5M'
 
 function DropDownCategory(props) {
-	
 	const array = ['relevance', 'newest']
 
 	async function handleClick(value) {
