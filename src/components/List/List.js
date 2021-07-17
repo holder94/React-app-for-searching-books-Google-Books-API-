@@ -28,13 +28,10 @@ function List(props) {
 		const res = await fetch(url)
 		const data = await res.json()
 
-		if (props.array.length === props.totalItems) {
-			props.loader(false)
-			return
-		} else {
+		if (props.array.length !== props.totalItems) {
 			props.load(data.items)
-			props.loader(false)
 		}
+		props.loader(false)
 	}
 
 	return (

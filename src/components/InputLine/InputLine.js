@@ -17,6 +17,7 @@ function InputLine(props) {
 	const [input, setInput] = useState('')
 
 	async function submit(event) {
+		props.setQuery(input)
 		if (
 			(event.key === 'Enter' || event.type === 'click') &&
 			event.target.value !== '' &&
@@ -37,15 +38,12 @@ function InputLine(props) {
 			const res = await fetch(url)
 			const data = await res.json()
 			if (!data.totalItems) {
-				props.loader(false)
 				props.setItems(0)
-				return
 			} else {
 				props.setItems(data.totalItems)
 				props.load(data.items)
-				props.loader(false)
-				props.setQuery(input)
 			}
+			props.loader(false)
 		}
 	}
 	return (

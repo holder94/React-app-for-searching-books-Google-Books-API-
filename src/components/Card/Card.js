@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { setOpened, updateCard } from '../../redux/Actions/actions'
 
 function Card(props) {
+	
 	function openCard(title, categories, authors, link) {
 		props.open(true)
 		const obj = {
@@ -28,7 +29,6 @@ function Card(props) {
 			}}
 		>
 			{props.imgLink === ' ' ? <div className="altpic">No picture</div> : <img src={props.imgLink} width='100%' alt='no pic' />}
-			<br />
 			<div className='title'>{props.title}</div>
 			<div className='category'>
 				Category: {props.categories || 'Not stated'}

@@ -14,9 +14,12 @@ import {
 const myAPIKey = 'AIzaSyCgRUtnaRS_MTCQxmK0J-q-O-KFJMrEv5M'
 
 function DropDownCategory(props) {
+	
 	const array = ['relevance', 'newest']
 
 	async function handleClick(value) {
+		props.changeSorting(value)
+		props.sorting(false)
 		if (!props.query) return
 		const length = props.books.length
 		let times = Math.floor(length / 30) + (length % 30 ? 1 : 0)
@@ -24,8 +27,6 @@ function DropDownCategory(props) {
 		let total = 0
 		let start = 0
 		props.resetBooks()
-		props.changeSorting(value)
-		props.sorting(false)
 		props.setLoading(true)
 
 		for (let i = 0; i < times; i++) {

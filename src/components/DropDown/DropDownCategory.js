@@ -14,6 +14,7 @@ import {
 const myAPIKey = 'AIzaSyCgRUtnaRS_MTCQxmK0J-q-O-KFJMrEv5M'
 
 function DropDownCategory(props) {
+	
 	const array = [
 		'all',
 		'art',
@@ -25,6 +26,8 @@ function DropDownCategory(props) {
 	]
 
 	async function handleClick(value) {
+		props.changeCategory(value)
+		props.category(false)
 		if (!props.query) return
 		const length = props.books.length
 		let times = Math.floor(length / 30) + (length % 30 ? 1 : 0)
@@ -32,8 +35,6 @@ function DropDownCategory(props) {
 		let total = 0
 		let start = 0
 		props.resetBooks()
-		props.changeCategory(value)
-		props.category(false)
 		props.setLoading(true)
 
 		for (let i = 0; i < times; i++) {
@@ -42,6 +43,8 @@ function DropDownCategory(props) {
 			}${value === 'all' ? '' : `+subject:${value}`}&orderBy=${
 				props.currentSorting
 			}&startIndex=${start}&maxResults=30&key=${myAPIKey}`
+			console.warn(url)
+
 			const res = await fetch(url)
 			const data = await res.json()
 			if (data.totalItems === 0) {
